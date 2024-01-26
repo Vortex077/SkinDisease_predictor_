@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnose</title>
+    <style>
+        body {
+            background-image: url('../static/images/diag_back.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          padding-top: 8px;
+          overflow: hidden;
+          background-color: rgb(39, 39, 154);
+          margin-top: -12px;
+          margin-left: -26px;
+          width: 100%;
+          padding-right: 26px;
+        }
+
+        .navbutton {
+          float: right; /* Change float property to right */
+        }
+
+        .navbutton a {
+          font-size: 20px;
+          font-family: 'Berlin Sans fb';
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 20px 16px;
+          text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        .navbutton a:hover {
+          background-color: rgb(7, 0, 139);
+          cursor: pointer;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-family: 'Bahnschrift SemiBold';
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to right, rgb(39, 39, 154),rgb(6, 186, 231));
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            margin-top: 50px; /* Adjust as needed for spacing */
+        }
+
+        .head1{
+            color: white;
+            font-family: 'Bahnschrift SemiBold';
+        }
+
+        input[type="file"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn1{
+            background-color: red;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 20px;
+            font-family: 'Bahnschrift SemiBold' ;
+            font-size: 15px;
+            margin-top: 0px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+    
+<body>
+
+<ul class="navbar">
+    <li class="navbutton"><a href="/about">About</a></li>
+    <li class="navbutton"><a href="/diagnose">Diagnose</a></li>
+    <li class="navbutton"><a href="/list">Diseases</a></li>
+    <li class="navbutton"><a href="/">Home</a></li>
+    <li style="color: white; display: block;font-size: 35px;font-family: Rog fonts;padding-left: 100px;margin-top: 10px;">Derm-AI</li>
+</ul>
+        
+<div class="container">
+    <div class="background-animation"></div>
+
+    <h1 class="head1">Dermatology Diagnosis Tool</h1>
+    <form id="diagnosisForm" action="/submit" method="post" enctype="multipart/form-data">
+        <label for="symptoms">DISCLAIMER</label>
+        <p style="justify-self: start;">DermAI provides general skin health insights but does not replace professional medical advice. <br>
+         Consult healthcare professionals for personalized guidance. DermAI is not equipped to handle emergencies. <br>
+         Results may vary, and users are responsible for their healthcare decisions.<br>
+        </p>
+        <label for="uploadImage">Upload Skin Image:</label>
+        <input style="align-self: center;" class="image input" type="file" id="uploadImage" name="my_image" accept="image/*" required>
+     <button class="btn1" type="submit">Diagnose</button>
+    </form>
+
+    <h1 style="color: aliceblue">Diagnosis Result</h1>
+
+    <img src="{{ image_path }}" style="max-width: 50%">
+    <h2 style="color: aliceblue">Prediction Result:</h2>
+    <b class="head1" style="font-size: large">{{result1}}</b>
+</div>
+</body>
+</html>
