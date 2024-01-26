@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to DermAI 👋</h1>
+<h1 align="center">Welcome to Derm-AI 👋</h1>
 <p>
 </p>
 
